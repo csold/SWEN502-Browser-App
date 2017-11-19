@@ -40,7 +40,7 @@
                 android:paddingEnd="16dp"
                 android:paddingTop="4dp"
                 android:paddingBottom="4dp"
-                android:imeOptions="actionSearch"
+                android:imeOptions="actionGo"
                 android:maxLines="1"
                 android:inputType="text"/>
             <ProgressBar
@@ -96,13 +96,27 @@
                 android:background="@drawable/bottom_button"
                 android:orientation="vertical"
                 android:layout_weight="1">
-                <ImageView
-                    android:id="@+id/tabs"
-                    android:src="@drawable/ic_content_copy_black_24dp"
+                <RelativeLayout
                     android:layout_gravity="center_horizontal"
                     android:layout_width="wrap_content"
-                    android:padding="8dp"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/tabs"
+                        android:src="@drawable/ic_content_copy_black_24dp"
+                        android:layout_width="wrap_content"
+                        android:padding="8dp"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/tab_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@id/tabs"
+                        android:paddingStart="22dp"
+                        android:paddingTop="18dp"
+                        android:text="@string/tab_count"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"/>
+                </RelativeLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="0dp"
@@ -135,4 +149,56 @@
         </LinearLayout>
     </LinearLayout>
 
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/historyCover"
+        android:background="#AA000000"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/search_box"
+            android:layout_margin="48dp">
+            <ImageView
+                android:id="@+id/historyCancel"
+                android:layout_width="wrap_content"
+                android:layout_gravity="end"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_close_black_24dp"
+                android:padding="8dp"/>
+            <ListView
+                android:id="@+id/historyListView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/tabCover"
+        android:background="#AA000000"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="48dp">
+            <ListView
+                android:id="@+id/tabListView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:id="@+id/add_tab"
+                android:src="@drawable/ic_add_box_24dp"
+                android:layout_gravity="center_horizontal"
+                android:padding="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>
